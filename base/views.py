@@ -5,4 +5,6 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    context = dict()
+    context['active'] = 'home'
+    return render(request, "base/home.html", context)
