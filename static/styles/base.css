@@ -1,5 +1,5 @@
 body{
-    background-color: #eeece2;
+    /*background-color: #89cff0;*/
     background-image: url("../images/back-main.jpg");
 }
 
@@ -12,6 +12,7 @@ body{
     /*--tw-shadow: 0 0 #0000;*/
     margin: 0 auto;
     margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
     padding: 20px;
 }
 
@@ -26,15 +27,19 @@ body{
 }
 
 .my-navbar{
-    background-color: rgb(38,15,38);
+    background-color: rgb(169, 139, 105);
+    /*border: solid 3px white;*/
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-footer {
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   /*height:30px;*/
-   width:100%;
-   /*background:#999;*/
-   /* margin-right: 0;*/
-}
+/*footer {*/
+/*   position:fixed;*/
+/*   left:0px;*/
+/*   bottom:0px;*/
+/*   !*height:30px;*!*/
+/*   width:100%;*/
+/*   !*background:#999;*!*/
+/*   !* margin-right: 0;*!*/
+/*}*/

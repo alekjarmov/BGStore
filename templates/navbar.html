@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light my-navbar" >
+    <div class="container">
+        <a class="navbar-brand my-brand" href="/static">BGStore</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link {% if active == 'home' %} active{% endif %}"
+                       {% if active == 'home' %}aria-current="page" {% endif %}href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Placeholder</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-md-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Placeholder</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
