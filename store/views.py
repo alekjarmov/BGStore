@@ -11,6 +11,11 @@ def home(request):
     top_sellers = Product.objects.order_by('-copies_sold')[:8]
     context['active'] = 'home'
     context['top_sellers'] = top_sellers
-    context['test'] = [1, 2, 3]
-    print(context)
     return render(request, "store/home.html", context)
+
+
+def product(request, product_id):
+    context = dict()
+    context['active'] = 'product'
+    context['product'] = Product.objects.get(id=product_id)
+    return render(request, "store/product.html", context)

@@ -1,0 +1,17 @@
+.share-icon{
+    color: black;
+    /*on hover transition to blue*/
+    transition: color 0.3s ease;
+    border: 1px solid #b4abab;
+}
+
+.share-icon:hover i{
+    color: #2fb5d2;
+}
+
+.share-icon:hover{
+    border: 1px solid #b4abab;
+}
+.fab{
+    transition: color 0.2s ease;
+}

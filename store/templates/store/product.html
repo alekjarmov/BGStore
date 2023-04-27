@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-5 mr-4">
+            <img src="{{ product.image_url }}" alt="..." class="img-thumbnail">
+            <div>
+                <ul class="product-images">
+                    {#                    have a list of small images to click which will change the main image#}
+                </ul>
+
+            </div>
+        </div>
+        <div class=" col-md-7">
+            <h4> {{ product.name }}</h4>
+            <div class="product-price">
+                €{{ product.price }}
+            </div>
+            <div class="my-2">
+                <div class="d-flex flex-row">
+                    {% for language in product.languages.all %}
+                        <img src="{{ language.image_url }}" alt="..." class="img-thumbnail">
+                    {% endfor %}
+                </div>
+            </div>
+            <div>
+                {{ product.get_short_description | safe }}
+            </div>
+            <div class="mt-4 ">
+                <form action="" method="post" class="">
+                    {% csrf_token %}
+                    <label for="quantity"> Quantity:</label>
+                    <div class="d-flex flex-row">
+                        <div class="text-center d-flex flex-column mr-3">
+
+                            <input id="quantity" type="number" name="quantity" value="1" min="1"
+                                   max="{{ product.stock }}"
+                                   class="form-control w-75">
+                        </div>
+                        <button type="submit" class="btn btn-info btn-block">
+                           <i class="fa-solid fa-cart-shopping"></i> Add to cart
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+            <!-- -->
+            <div class="share mt-3">
+                {% include 'share_list.html' %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
