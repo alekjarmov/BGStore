@@ -1,0 +1,41 @@
+- model: store.Language
+  pk: 1
+  fields:
+    name: English
+    code: en
+    image_url: https://img.icons8.com/office/30/great-britain.png
+
+- model: store.Language
+  pk: 2
+  fields:
+    name: French
+    code: fr
+    image_url:	https://img.icons8.com/office/30/france.png
+
+- model: store.Language
+  pk: 3
+  fields:
+    name: German
+    code: de
+    image_url: https://img.icons8.com/office/30/germany.png
+
+- model: store.Language
+  pk: 4
+  fields:
+    name: Spanish
+    code: es
+    image_url: https://img.icons8.com/office/30/spain.png
+
+- model: store.Language
+  pk: 5
+  fields:
+    name: Italian
+    code: it
+    image_url: https://img.icons8.com/office/30/italy.png
+
+- model: store.Language
+  pk: 6
+  fields:
+    name: Macedonian
+    code: mk
+    image_url: https://img.icons8.com/office/30/macedonia.png
