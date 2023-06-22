@@ -40,12 +40,12 @@ body{
     line-height: 1.1;
     color: #2fb5d2;
 }
-/*footer {*/
-/*   position:fixed;*/
-/*   left:0px;*/
-/*   bottom:0px;*/
-/*   !*height:30px;*!*/
-/*   width:100%;*/
-/*   !*background:#999;*!*/
-/*   !* margin-right: 0;*!*/
-/*}*/
+footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   /*height:30px;*/
+   width:100%;
+   /*background:#999;*/
+   /* margin-right: 0;*/
+}
