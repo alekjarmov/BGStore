@@ -1,0 +1,53 @@
+- model: store.Product
+  pk: 1
+  fields:
+    name: Dice Settlers
+    price: 52
+    image_url: https://www.spelshop.be/6018-large_default/dice-settlers.jpg
+    stock: 10
+    copies_sold: 2
+
+- model: store.Product
+  pk: 2
+  fields:
+    name: The Search for Planet X
+    price: 39.50
+    image_url: https://www.spelshop.be/8828-large_default/the-search-for-planet-x.jpg
+    stock: 10
+    copies_sold: 3
+
+- model: store.Product
+  pk: 3
+  fields:
+    name: Wingspan
+    price: 60
+    image_url: https://www.spelshop.be/6692-large_default/wingspan.jpg
+    stock: 11
+    copies_sold: 100
+
+- model: store.Product
+  pk: 4
+  fields:
+    name: Phoenix Rising
+    price: 25.5
+    image_url: https://www.spelshop.be/7666-large_default/tsuro-phoenix-rising.jpg
+    stock: 12
+    copies_sold: 1
+
+- model: store.Product
+  pk: 5
+  fields:
+    name: Dominion Renaissance
+    price: 45
+    image_url: https://www.spelshop.be/7583-large_default/dominion-renaissance.jpg
+    stock: 12
+    copies_sold: 3
+
+- model: store.Product
+  pk: 6
+  fields:
+    name: Roll Adventure
+    price: 30
+    image_url: https://www.spelshop.be/6333-large_default/roll-for-adventure.jpg
+    stock: 12
+    copies_sold: 1
