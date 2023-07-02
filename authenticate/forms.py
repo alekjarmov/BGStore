@@ -1,5 +1,5 @@
 from typing import Any
-
+from django.contrib.auth.forms import AuthenticationForm
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, ValidationError
 from django.contrib.auth.models import User
@@ -26,11 +26,6 @@ class RedErrorList(ErrorList):
         return self.as_red()
 
     def as_p(self):
-        if not self:
-            return ""
-        return self.as_red()
-
-    def as_text(self):
         if not self:
             return ""
         return self.as_red()
@@ -85,10 +80,10 @@ class SignUpForm(UserCreationForm):
         return cleaned_data
 
 
-class LoginForm(forms.Form):
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
-    password = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    class Meta:
-        model = User
-        fields = ('username', 'password', )
+class LoginForm(AuthenticationForm):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # self.error_class = RedErrorList
+        for field in self.visible_fields():
+            field.field.widget.attrs['class'] = "form-control"

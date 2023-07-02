@@ -1,4 +1,4 @@
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
@@ -15,7 +15,7 @@ def register_view(request: HttpRequest):
             email = form.cleaned_data["email"]
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
-            return redirect("home")
+            return redirect("login")
         else:
             return render(request, "authenticate/register.html", {"form": form})
 
@@ -24,4 +24,23 @@ def register_view(request: HttpRequest):
 
 
 def login_view(request):
-    pass
+    context = dict()
+    if request.method == 'POST':
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            login(request, form.get_user())
+            return redirect('home')
+        else:
+            return render(request, 'authenticate/login.html', {'form': form})
+
+    form = LoginForm()
+    context['form'] = form
+    return render(request, 'authenticate/login.html', context)
+
+
+def logout_view(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    logout(request)
+    return redirect('home')

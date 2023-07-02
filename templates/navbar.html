@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light my-navbar" >
+<nav class="navbar navbar-expand-sm navbar-light bg-light my-navbar">
     <div class="container">
         <a class="navbar-brand my-brand" href="{% url 'home' %}">BGStore</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -18,9 +18,20 @@
             </ul>
 
             <ul class="navbar-nav ms-md-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Placeholder</a>
-                </li>
+
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Account&nbsp;<i class="bi bi-person-circle fw-bold fs-4"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}"><i class="bi bi-box-arrow-right fw-bold fs-4"></i></a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                {% endif %}
+
 
             </ul>
         </div>
