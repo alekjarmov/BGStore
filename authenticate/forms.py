@@ -43,8 +43,9 @@ class SignUpForm(UserCreationForm):
     password2 = forms.PasswordInput()
 
     def __init__(self, *args, **kwargs):
-        self.error_class = RedErrorList
+
         super(SignUpForm, self).__init__(*args, **kwargs)
+        self.error_class = RedErrorList
         for field in self.visible_fields():
             field.field.widget.attrs["class"] = "form-control"
 
