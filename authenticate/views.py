@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from .forms import SignUpForm, LoginForm
+from store import models
 
 
 def register_view(request: HttpRequest):
@@ -28,7 +29,12 @@ def login_view(request):
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
         if form.is_valid():
-            login(request, form.get_user())
+            user = form.get_user()
+            login(request, user)
+            cart = models.Cart.objects.filter(user=user).first()
+            if not cart:
+                cart = create_cart(user)
+
             return redirect('home')
         else:
             return render(request, 'authenticate/login.html', {'form': form})
@@ -44,3 +50,9 @@ def logout_view(request):
 
     logout(request)
     return redirect('home')
+
+
+def create_cart(user: User):
+    cart = models.Cart.objects.create(user=user)
+    cart.save()
+    return cart

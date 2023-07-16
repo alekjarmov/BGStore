@@ -19,3 +19,10 @@ def product(request, product_id):
     context['active'] = 'product'
     context['product'] = Product.objects.get(id=product_id)
     return render(request, "store/product.html", context)
+
+
+def products(request):
+    context = dict()
+    context['active'] = 'products'
+    context['products'] = Product.objects.all()
+    return render(request, "store/products.html", context)

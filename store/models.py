@@ -44,6 +44,12 @@ class CartItem(models.Model):
     cart = models.ForeignKey("Cart", on_delete=models.CASCADE, related_name="items")
     # objects = CartItemManager()
 
+    def __str__(self):
+        return f"{self.quantity}x {self.product.name}"
+
+    def get_total_price(self):
+        return self.quantity * self.product.price
+
 
 class Cart(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
