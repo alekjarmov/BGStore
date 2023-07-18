@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1> Buying the game {{ game.name }}</h1>
+    <hr>
+    <div class="card my-4">
+            <div class="card-header">
+                {{ game.name }}
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-9">
+                        <h5 class="card-title product-price"> €{{ game.price }}</h5>
+                        <p class="card-text">{{ game.description }}</p>
+                    </div>
+                    <div class="col-3">
+                        <img src="{{ game.image_url }}" alt="board game" style="height:10rem; width: 10rem">
+                    </div>
+                </div>
+
+
+                <div class="card-footer text-muted">
+                    Date of purchase: {%  now "F d, Y" %}
+                </div>
+            </div>
+        </div>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back to games</a>
+        <a href="{% url 'home' %}" class="btn btn-primary">Proceed to checkout</a>
+
+
+{% endblock content %}

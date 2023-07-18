@@ -48,9 +48,9 @@
                         <p class="card-text font-weight-bold" style="font-weight: bold; margin-bottom: 4px">
                             {{ game.price }} €
                         </p>
-                        <button class="btn btn-info  mt-auto mx-auto">
-                            <i class="fa-solid fa-cart-shopping"></i> Add to cart
-                        </button>
+                        <a role="button" href="{% url 'buy' product_id=game.id %}" class="btn btn-info  mt-auto mx-auto">
+                            <i class="fa-solid fa-cart-shopping"></i> Buy now
+                        </a>
                     </div>
                 </div>
             </div>

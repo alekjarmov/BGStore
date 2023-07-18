@@ -5,7 +5,7 @@
 
 <h2>All Games</h2>
     <div class="row mg-3 row-cols-md-3 g-4">
-        {% for game in top_sellers %}
+        {% for game in games %}
             <div class="col-md-3 mg-4">
                 <div class="card mg-4 text-center h-100 bg whole">
                     <a href="{% url 'product' product_id=game.id %}">
@@ -17,7 +17,7 @@
                         <p class="card-text font-weight-bold" style="font-weight: bold; margin-bottom: 4px">
                             {{ game.price }} €
                         </p>
-                        <button class="btn btn-info  mt-auto mx-auto">
+                        <button class="btn btn-info  mt-auto mx-auto" role="link" href="{% url  %}">
                             <i class="fa-solid fa-cart-shopping"></i> Add to cart
                         </button>
                     </div>
