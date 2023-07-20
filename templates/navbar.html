@@ -14,7 +14,19 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if active == 'products' %} active{% endif %}"
-                       {% if active == 'products' %}aria-current="page" {% endif %}href="{% url 'products' %}">All Games</a>
+                       {% if active == 'products' %}aria-current="page" {% endif %}href="{% url 'products' %}">All
+                        Games</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {% if active == 'categories' %} active{% endif %}" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href={% url 'categories' category_id=1 %}>2 Player games</a></li>
+                        <li><a class="dropdown-item" href={% url 'categories' category_id=2 %}>Abstract Games</a></li>
+                        <li><a class="dropdown-item" href={% url 'categories' category_id=3 %}>Coop Games</a></li>
+                    </ul>
                 </li>
             </ul>
 

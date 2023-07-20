@@ -1,3 +1,5 @@
+import random
+
 from django.shortcuts import render, redirect
 from store import models
 from authenticate.views import create_cart
@@ -28,6 +30,7 @@ def products(request):
     context = dict()
     context['active'] = 'products'
     context['games'] = models.Product.objects.all()
+    context['title'] = 'All Games'
     return render(request, "store/products.html", context)
 
 
@@ -67,3 +70,22 @@ def payment(request, product_id):
     context = dict()
     context['game'] = models.Product.objects.get(id=product_id)
     return render(request, "store/payment.html", context)
+
+
+def categories(request, category_id):
+    id_name_map = dict()
+    id_name_map[1] = '2 Player games'
+    id_name_map[2] = 'Abstract Games'
+    id_name_map[3] = 'Coop Games'
+    context = dict()
+    context['active'] = 'categories'
+    # generate a random subset of games from all games
+    all_games = models.Product.objects.all()
+    if len(all_games) == 0:
+        how_many = 0
+    else:
+        how_many = random.randint(1, len(all_games))
+    random_games = random.sample(list(all_games), how_many)
+    context['games'] = random_games
+    context['title'] = id_name_map[category_id]
+    return render(request, "store/products.html", context)

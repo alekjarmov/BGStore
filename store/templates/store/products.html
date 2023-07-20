@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h2>All Games</h2>
+<h2 class="p-2">{{ title }}</h2>
     <div class="row mg-3 row-cols-md-3 g-4">
         {% for game in games %}
             <div class="col-md-3 mg-4">
@@ -17,9 +17,9 @@
                         <p class="card-text font-weight-bold" style="font-weight: bold; margin-bottom: 4px">
                             {{ game.price }} €
                         </p>
-                        <button class="btn btn-info  mt-auto mx-auto" role="link" href="{% url 'buy' product_id=game.id %}">
+                        <a class="btn btn-info  mt-auto mx-auto" role="link" href="{% url 'buy' product_id=game.id %}">
                             <i class="fa-solid fa-cart-shopping"></i> Buy now
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
