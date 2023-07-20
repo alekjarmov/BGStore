@@ -68,7 +68,7 @@ class SignUpForm(UserCreationForm):
             raise ValidationError("Passwords don't match", code="password_mismatch")
         return password2
 
-    def clean(self) -> dict[str, Any] | None:
+    def clean(self) -> dict[str, Any]:
         cleaned_data = super().clean()
         username = cleaned_data.get("username")
         email = cleaned_data.get("email")
