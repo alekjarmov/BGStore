@@ -8,8 +8,10 @@ from django.http import HttpResponse, JsonResponse
 def home(request):
     context = dict()
     # get the 6 most sold products
-
     top_sellers = models.Product.objects.order_by('-copies_sold')[:8]
+
+    if request.GET.get('success'):
+        context['success'] = True
     context['active'] = 'home'
     context['top_sellers'] = top_sellers
     return render(request, "store/home.html", context)

@@ -39,9 +39,10 @@
                                    max="{{ product.stock }}"
                                    class="form-control w-75">
                         </div>
-                        <button type="submit" class="btn btn-info btn-block">
-                           <i class="fa-solid fa-cart-shopping"></i> Add to cart
-                        </button>
+                        <a type="button" class="btn btn-info btn-block" href="{% url 'buy' product_id=product.id %}">
+                           <i class="fa-solid fa-cart-shopping"></i> Buy now
+                        </a>
+
                     </div>
 
                 </form>

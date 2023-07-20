@@ -25,8 +25,8 @@
                 </div>
             </div>
         </div>
-        <a href="{% url 'home' %}" class="btn btn-secondary">Back to games</a>
-        <a href="{% url 'home' %}" class="btn btn-primary">Proceed to checkout</a>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back home</a>
+        <a href="{% url 'payment' product_id=game.id %}" class="btn btn-primary">Proceed to checkout</a>
 
 
 {% endblock content %}

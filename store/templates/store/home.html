@@ -4,6 +4,16 @@
 
 {% block content %}
     <!-- Carousel -->
+    {% if success %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>You have <strong>successfully</strong> purchased your board game! It will arrive in the next 20 days. If you have
+            any problems feel free to contact our support and remember to have fun.</p>
+            <hr>
+            <p class="mb-0">If you have to buy any other game keep using BGStore.</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
     <div id="carouselExampleFade" class="carousel slide carousel-fade">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -48,7 +58,8 @@
                         <p class="card-text font-weight-bold" style="font-weight: bold; margin-bottom: 4px">
                             {{ game.price }} €
                         </p>
-                        <a role="button" href="{% url 'buy' product_id=game.id %}" class="btn btn-info  mt-auto mx-auto">
+                        <a role="button" href="{% url 'buy' product_id=game.id %}"
+                           class="btn btn-info  mt-auto mx-auto">
                             <i class="fa-solid fa-cart-shopping"></i> Buy now
                         </a>
                     </div>
